@@ -25,3 +25,9 @@ temp/
 .pre-commit-config.yaml
 .envrc.private
 **/target
+**/node_modules
+
+
+# Added by cargo
+
+/target

@@ -1,0 +1,21 @@
+bin_name:="app"
+cargo_target_dir:="../../target"
+musl_bin_path:="x86_64-unknown-linux-musl/debug"
+dest_lambda_path:="lambda/debug"
+dest_lambda_bin_name:="bootstrap"
+dest_lambda_zip_path:="bootstrap.zip"
+
+build-musl:
+	[ -e {{cargo_target_dir}} ] && rm -rf {{cargo_target_dir}}
+	cargo build --target x86_64-unknown-linux-musl
+
+package-musl: build-musl
+	mkdir -p {{cargo_target_dir}}/{{dest_lambda_path}}
+	cp {{cargo_target_dir}}/{{musl_bin_path}}/{{bin_name}} {{cargo_target_dir}}/{{dest_lambda_path}}/{{dest_lambda_bin_name}}
+	zip -j {{cargo_target_dir}}/{{dest_lambda_path}}/{{dest_lambda_zip_path}} {{cargo_target_dir}}/{{dest_lambda_path}}/{{dest_lambda_bin_name}}
+
+deploy-musl: package-musl
+	cd cdk_musl && npm install && cdk deploy
+
+deploy-container:
+	cd cdk_container && npm install && cdk deploy

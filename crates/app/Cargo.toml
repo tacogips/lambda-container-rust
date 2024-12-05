@@ -1,0 +1,16 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+
+default = []
+glibc = ["deno_core"]
+
+[dependencies]
+tokio = { workspace = true }
+lambda_runtime = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+deno_core = { version = "0.324.0", optional = true }
