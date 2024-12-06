@@ -2,7 +2,7 @@ import * as path from "path";
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 
-export class TacogipsTestAppStack extends cdk.Stack {
+export class TacogipsZipTestAppStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -11,8 +11,8 @@ export class TacogipsTestAppStack extends cdk.Stack {
       projectRoot,
       "target/lambda/debug/bootstrap.zip",
     );
-    new cdk.aws_lambda.Function(this, `TacogipsTestAppLambdaFunction`, {
-      functionName: `TacogipsTestAppLambdaFunction`,
+    new cdk.aws_lambda.Function(this, `TacogipsZipTestAppLambdaFunction`, {
+      functionName: `TacogipsZipTestAppLambdaFunction`,
       runtime: cdk.aws_lambda.Runtime.PROVIDED_AL2023,
       code: cdk.aws_lambda.Code.fromAsset(assetPath),
       handler: "bootstrap",
