@@ -1,3 +1,5 @@
+A reference implementation for running Rust web services on AWS Lambda, using either musl or glibc (in containers).
+
 Install dependencies with
 
 ```
