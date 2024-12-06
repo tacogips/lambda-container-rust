@@ -14,7 +14,7 @@ package-musl: build-musl
 	cp {{cargo_target_dir}}/{{musl_bin_path}}/{{bin_name}} {{cargo_target_dir}}/{{dest_lambda_path}}/{{dest_lambda_bin_name}}
 	zip -j {{cargo_target_dir}}/{{dest_lambda_path}}/{{dest_lambda_zip_path}} {{cargo_target_dir}}/{{dest_lambda_path}}/{{dest_lambda_bin_name}}
 
-deploy-musl: package-musl
+deploy-zip: package-musl
 	cd cdk_musl && npm install && cdk deploy
 
 deploy-container:

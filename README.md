@@ -1,8 +1,13 @@
+Install dependencies with
+
+```
+nix develop
+```
 
 ## deploy lambda on zip image base
 ```sh
 cd crates/app
-just deploy-musl
+just deploy-zip
 ```
 
 Name of the lambda function will be `TacogipsZipTestAppLambdaFunction`
