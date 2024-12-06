@@ -1,4 +1,5 @@
 import * as path from "path";
+
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
 
@@ -16,9 +17,9 @@ export class TacogipsContainerTestAppStack extends cdk.Stack {
     );
     new cdk.aws_lambda.DockerImageFunction(
       this,
-      `TacogipsTestAppLambdaFunction`,
+      `TacogipsContainerTestAppLambdaFunction`,
       {
-        functionName: `TacogipsTestAppLambdaFunction`,
+        functionName: `TacogipsContainerTestAppLambdaFunction`,
         code: cdk.aws_lambda.DockerImageCode.fromImageAsset(projectRoot, {
           file: dockerFilePath,
         }),
