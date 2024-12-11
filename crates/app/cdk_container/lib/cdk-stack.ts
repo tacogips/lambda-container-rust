@@ -11,10 +11,6 @@ export class TacogipsContainerTestAppStack extends cdk.Stack {
 
     const dockerFilePath = "crates/app/cdk_container/Dockerfile";
 
-    const assetPath = path.join(
-      projectRoot,
-      "target/lambda/debug/bootstrap.zip",
-    );
     new cdk.aws_lambda.DockerImageFunction(
       this,
       `TacogipsContainerTestAppLambdaFunction`,
