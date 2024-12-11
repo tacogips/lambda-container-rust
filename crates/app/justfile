@@ -21,6 +21,11 @@ deploy-container:
 	cd cdk_container && npm install && cdk deploy
 
 deploy-container-private:
-	cd ../.. && cargo vendor > .cargo/config.toml && echo $'[net]\ngit-fetch-with-cli = true'  >> .cargo/config.toml
-
-	cd cdk_container_private && npm install && cdk deploy
+	cd ../.. \
+		&& cargo vendor   \
+			> .cargo/config.toml \
+		&& echo $'[net]\ngit-fetch-with-cli = true'  >> .cargo/config.toml
+#	cd cdk_container_private && npm install && cdk deploy
+	cd ../.. \
+	ls
+		 #echo $'[net]\ngit-fetch-with-cli = true'  > .cargo/config.toml
