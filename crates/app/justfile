@@ -19,3 +19,6 @@ deploy-zip: package-musl
 
 deploy-container:
 	cd cdk_container && npm install && cdk deploy
+
+deploy-container-private:
+	cd cdk_container_private && npm install && cdk deploy

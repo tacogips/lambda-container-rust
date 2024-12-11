@@ -7,6 +7,7 @@ edition = "2021"
 
 default = []
 glibc = ["deno_core"]
+private = ["dep-lambda-container-rust"]
 
 [dependencies]
 tokio = { workspace = true }
@@ -14,3 +15,4 @@ lambda_runtime = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 deno_core = { version = "0.324.0", optional = true }
+dep-lambda-container-rust = { git = "ssh://git@github.com/tacogips/dep-lambda-container-rust.git", branch = "main", optional = true }

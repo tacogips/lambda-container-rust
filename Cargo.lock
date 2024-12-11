@@ -43,6 +43,7 @@ name = "app"
 version = "0.1.0"
 dependencies = [
  "deno_core",
+ "dep-lambda-container-rust",
  "lambda_runtime",
  "serde",
  "serde_json",
@@ -305,6 +306,11 @@ dependencies = [
  "parking_lot",
  "tokio",
 ]
+
+[[package]]
+name = "dep-lambda-container-rust"
+version = "0.1.0"
+source = "git+ssh://git@github.com/tacogips/dep-lambda-container-rust.git?branch=main#cb5264d8357474255f86ab12ddd172f31faa9ccc"
 
 [[package]]
 name = "displaydoc"
