@@ -3,7 +3,7 @@
   description = "lambda rust container";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:tacogips/nixpkgs-security/4a5495d1c0a7c62200b55deeeecb64f03b093056";
     flake-utils.url = "github:numtide/flake-utils";
 
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
@@ -18,6 +18,10 @@
     };
 
   };
+
+  # Share the patched Node.js and CA bundle across transitive development inputs.
+  inputs.pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
+  inputs.pre-commit-hooks.inputs.nixpkgs-stable.follows = "nixpkgs";
 
   outputs =
     {
@@ -47,8 +51,8 @@
           [
             awscli2
             nodejs
-            nodePackages.typescript-language-server
-            nodePackages.aws-cdk
+            typescript-language-server
+            aws-cdk-cli
             just
             taplo
             zip
