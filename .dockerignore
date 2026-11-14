@@ -1,0 +1,8 @@
+**/target
+**/node_modules
+.git
+.direnv
+.envrc
+.envrc.private
+scripts
+**/cdk.out/
